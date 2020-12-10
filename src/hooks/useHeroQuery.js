@@ -1,0 +1,24 @@
+import { useStaticQuery, graphql } from "gatsby"
+
+export const useHeroQuery = () => {
+  const data = useStaticQuery(graphql`
+    query MyQuery {
+      wpPage(databaseId: { eq: 47 }) {
+        id
+        ACF_HomePage {
+          heroImage {
+            localFile {
+              childImageSharp {
+                fluid(quality: 100, maxWidth: 1920) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  return data;
+}
