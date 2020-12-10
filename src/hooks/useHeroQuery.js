@@ -6,6 +6,7 @@ export const useHeroQuery = () => {
       wpPage(databaseId: { eq: 47 }) {
         id
         ACF_HomePage {
+          heroText
           heroImage {
             localFile {
               childImageSharp {
