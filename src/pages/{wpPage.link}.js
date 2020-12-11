@@ -5,6 +5,7 @@ import styled from "styled-components"
 import Layout from "../components/Layout/Layout"
 import PageHero from "../components/PageHero/PageHero"
 import BreadCrumb from "../components/BreadCrumb/BreadCrumb"
+import PageSidebar from "../components/PageSidebar/PageSidebar"
 
 const Wrapper = styled.div`
   max-width: 1180px;
@@ -33,8 +34,21 @@ const PageTemplate = ({ data }) => (
     ) : null}
     <Wrapper>
       <BreadCrumb parent={data.wpPage.wpParent && data.wpPage.wpParent.node} />
-      <p>Sidebar</p>
-      <p>Content</p>
+      <ContentWrapper>
+        <PageSidebar
+          parentChildren={
+            data.wpPage.wpParent && data.wpPage.wpParent.node.wpChildren.nodes
+          }
+          currentPage={data.wpPage}
+          parent={data.wpPage.wpParent && data.wpPage.wpParent.node.title}
+        >
+          {data.wpPage.wpChildren}
+        </PageSidebar>
+        <PageContent>
+          <h1 dangerouslySetInnerHTML={{ __html: data.wpPage.title }} />
+          <div dangerouslySetInnerHTML={{ __html: data.wpPage.content }} />
+        </PageContent>
+      </ContentWrapper>
     </Wrapper>
   </Layout>
 )
