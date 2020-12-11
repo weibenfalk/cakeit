@@ -4,6 +4,7 @@ import styled from "styled-components"
 // Components
 import Layout from "../components/Layout/Layout"
 import PageHero from "../components/PageHero/PageHero"
+import BreadCrumb from "../components/BreadCrumb/BreadCrumb"
 
 const Wrapper = styled.div`
   max-width: 1180px;
@@ -31,6 +32,7 @@ const PageTemplate = ({ data }) => (
       />
     ) : null}
     <Wrapper>
+      <BreadCrumb parent={data.wpPage.wpParent && data.wpPage.wpParent.node} />
       <p>Sidebar</p>
       <p>Content</p>
     </Wrapper>
