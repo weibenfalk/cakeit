@@ -24,11 +24,12 @@ const PostContent = styled.article`
 
 const PostTemplate = ({ data }) => (
   <Layout>
+    {console.log(data)}
     <Wrapper>
       <BreadCrumb
         parent={{
-          link: '/blog/all-posts',
-          title: 'blog'
+          link: "/blog/all-posts",
+          title: "blog",
         }}
       />
       <ContentWrapper>
@@ -43,3 +44,25 @@ const PostTemplate = ({ data }) => (
 )
 
 export default PostTemplate
+
+export const pageQuery = graphql`
+  query($id: String!) {
+    post: wpPost(id: { eq: $id }) {
+      title
+      content
+      author {
+        node {
+          name
+        }
+      }
+      date(formatString: "DD MM YYYY")
+      categories {
+        nodes {
+          id
+          name
+          slug
+        }
+      }
+    }
+  }
+`
