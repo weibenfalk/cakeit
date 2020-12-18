@@ -4,6 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/Layout/Layout"
 import BreadCrumb from "../components/BreadCrumb/BreadCrumb"
+import ArchiveSidebar from "../components/ArchiveSidebar/ArchiveSidebar"
 
 import {
   Wrapper,
@@ -14,7 +15,10 @@ import {
   StyledReadMore,
 } from "./archive.styles"
 
-const archiveTemplate = ({ data: { allWpPost } }) => (
+const archiveTemplate = ({
+  data: { allWpPost },
+  pageContext: { catId, catName, catSlug, categories, numPage, currentPage },
+}) => (
   <Layout>
     <StaticImage
       src="../images/archive_headerimage.png"
@@ -31,6 +35,9 @@ const archiveTemplate = ({ data: { allWpPost } }) => (
           title: "blog",
         }}
       />
+      <ContentWrapper>
+        <ArchiveSidebar catId={catId} categories={categories.edges} />
+      </ContentWrapper>
     </Wrapper>
   </Layout>
 )
