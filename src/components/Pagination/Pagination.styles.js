@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const PaginationWrapper = styled.nav`
+export const Wrapper = styled.nav`
   display: flex;
   justify-content: space-between;
 
