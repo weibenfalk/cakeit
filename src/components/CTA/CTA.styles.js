@@ -1,11 +1,11 @@
-import styled from 'styled-components';
-import Img from 'gatsby-image';
+import styled from "styled-components"
+import { GatsbyImage } from "gatsby-plugin-image"
 
-export const StyledImg = styled(Img)`
+export const StyledImg = styled(GatsbyImage)`
   img {
     transition: all 0.3s !important;
   }
-`;
+`
 
 export const CTAImage = styled.div`
   margin-bottom: 20px;
@@ -21,7 +21,7 @@ export const CTAImage = styled.div`
   @media (min-width: 768px) {
     max-height: 200px;
   }
-`;
+`
 
 export const CTAImageTextWrapper = styled.div`
   position: absolute;
@@ -34,11 +34,11 @@ export const CTAImageTextWrapper = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-`;
+`
 
 export const CTAImageText = styled.p`
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-  font-family: 'Teko';
+  font-family: "Teko";
   font-weight: 700;
   letter-spacing: 1.5px;
   font-size: 1.3rem;
@@ -57,4 +57,4 @@ export const CTAImageText = styled.p`
   @media (min-width: 1200px) {
     font-size: 1.5rem;
   }
-`;
+`

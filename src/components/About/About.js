@@ -1,24 +1,19 @@
-/* eslint-disable react/no-danger */
-import React from 'react';
-import { useAboutQuery } from '../../hooks/useAboutQuery';
-
-import { Wrapper, AboutImage } from './About.styles';
+import React from "react"
+import { useAboutQuery } from "../../hooks/useAboutQuery"
+import { Wrapper, AboutImage } from "./About.styles"
 
 const About = () => {
-  const data = useAboutQuery();
+  const data = useAboutQuery()
+  const imageData = data.wpPage.featuredImage.node.localFile.publicURL
 
   return (
     <Wrapper>
-      <AboutImage
-        image={
-          data.wpPage.featuredImage.node.localFile.childImageSharp.fluid.src
-        }
-      />
-      <div className='about-text'>
+      <AboutImage image={imageData} />
+      <div className="about-text">
         <div dangerouslySetInnerHTML={{ __html: data.wpPage.content }} />
       </div>
     </Wrapper>
-  );
-};
+  )
+}
 
-export default About;
+export default About

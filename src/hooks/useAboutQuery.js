@@ -1,4 +1,4 @@
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from "gatsby"
 
 export const useAboutQuery = () => {
   const data = useStaticQuery(graphql`
@@ -8,17 +8,13 @@ export const useAboutQuery = () => {
         featuredImage {
           node {
             localFile {
-              childImageSharp {
-                fluid(quality: 100) {
-                  src
-                }
-              }
+              publicURL
             }
           }
         }
       }
     }
-  `);
+  `)
 
-  return data;
-};
+  return data
+}

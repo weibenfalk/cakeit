@@ -1,19 +1,20 @@
 import React from "react"
+import { getImage } from "gatsby-plugin-image"
 import { useHeroQuery } from "../../hooks/useHeroQuery"
 import { Wrapper, HeaderWrapper, StyledImg } from "./Hero.styles"
 
 const Hero = () => {
-  const data = useHeroQuery()
+  const {
+    wpPage: { ACF_HomePage: data },
+  } = useHeroQuery()
+
+  const imageData = getImage(data.heroImage.localFile)
 
   return (
     <Wrapper>
-      <StyledImg
-        fluid={
-          data.wpPage.ACF_HomePage.heroImage.localFile.childImageSharp.fluid
-        }
-      />
+      <StyledImg image={imageData} alt="Hero Image" />
       <HeaderWrapper>
-        <h1>{data.wpPage.ACF_HomePage.heroText}</h1>
+        <h1>{data.heroText}</h1>
       </HeaderWrapper>
     </Wrapper>
   )

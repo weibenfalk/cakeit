@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
-export const StyledImg = styled(Img)`
+export const StyledImg = styled(GatsbyImage)`
   height: 300px;
 `;

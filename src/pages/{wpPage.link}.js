@@ -29,7 +29,10 @@ const PageTemplate = ({ data }) => (
   <Layout>
     {data.wpPage.featuredImage ? (
       <PageHero
-        img={data.wpPage.featuredImage.node.localFile.childImageSharp.fluid}
+        img={
+          data.wpPage.featuredImage.node.localFile.childImageSharp
+            .gatsbyImageData
+        }
       />
     ) : null}
     <Wrapper>
@@ -67,9 +70,11 @@ export const pageQuery = graphql`
           id
           localFile {
             childImageSharp {
-              fluid(quality: 100, maxWidth: 1920) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(
+                maxWidth: 1920
+                layout: FLUID
+                placeholder: TRACED_SVG
+              )
             }
           }
         }
