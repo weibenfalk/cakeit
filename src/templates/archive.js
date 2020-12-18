@@ -14,6 +14,31 @@ import {
   StyledReadMore,
 } from "./archive.styles"
 
-const archiveTemplate = () => <Layout>Archive</Layout>
+const archiveTemplate = ({ data: { allWpPost } }) => (
+  <Layout>
+    {console.log(allWpPost)}
+    Archive
+  </Layout>
+)
 
 export default archiveTemplate
+
+export const pageQuery = graphql`
+  query($catId: String!, $skip: Int!, $limit: Int!) {
+    allWpPost(
+      filter: { categories: { nodes: { elemMatch: { id: { eq: $catId } } } } }
+      skip: $skip
+      limit: $limit
+    ) {
+      edges {
+        node {
+          id
+          title
+          excerpt
+          slug
+          date(formatString: "DD MM YYYY")
+        }
+      }
+    }
+  }
+`
