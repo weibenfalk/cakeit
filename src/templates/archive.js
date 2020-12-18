@@ -16,8 +16,22 @@ import {
 
 const archiveTemplate = ({ data: { allWpPost } }) => (
   <Layout>
-    {console.log(allWpPost)}
-    Archive
+    <StaticImage
+      src="../images/archive_headerimage.png"
+      placeholder="TRACED_SVG"
+      layout="fluid"
+      maxWidth={1920}
+      maxHeight={300}
+      alt="Archive Hero"
+    />
+    <Wrapper>
+      <BreadCrumb
+        parent={{
+          link: "/blog/all-posts/",
+          title: "blog",
+        }}
+      />
+    </Wrapper>
   </Layout>
 )
 
