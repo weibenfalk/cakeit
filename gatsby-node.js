@@ -22,4 +22,5 @@ exports.createPages = async ({ graphql, actions }) => {
   if (result.errors) throw new Error(result.error)
 
   const { allWpCategory } = result.data
+  console.log(allWpCategory)
 }
