@@ -31,7 +31,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress-experimental`,
       options: {
-        url: `http://cakeit.local/graphql`,
+        url: `http://cakeit.weibenfalk.com/graphql`,
       },
     },
     `gatsby-plugin-styled-components`,
